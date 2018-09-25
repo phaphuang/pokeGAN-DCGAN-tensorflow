@@ -382,7 +382,7 @@ def train():
         # save check point every 500 epoch
         if i%500 == 0:
             if not os.path.exists('./model/' + version):
-                os.mkdirs('./model/' + version)
+                os.mkdir('./model/' + version)
             saver.save(sess, './model/' + version + '/' + str(i))
         
         if i%50 == 0:
