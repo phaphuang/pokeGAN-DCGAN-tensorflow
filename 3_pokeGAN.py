@@ -328,8 +328,8 @@ def train():
     batch_size = BATCH_SIZE
     image_batch, samples_num = process_data()
 
-    batch_num = int(samples_num / batch_size)
-    total_batch = 0
+    batch_num = samples_num // batch_size
+    print("Batch num: %d, samples num: %d" % (batch_num, samples_num))
     sess = tf.Session()
     saver = tf.train.Saver()
     sess.run(tf.global_variables_initializer())
@@ -377,7 +377,7 @@ def train():
                         is_train: True
                     }
                 )
-            print('train:[%d/%d], d_loss:%f, g_loss:f' % (i, j, dLoss, gLoss))
+            print('train:[%d/%d], d_loss:%f, g_loss:%f' % (i, j, dLoss, gLoss))
 
         # save check point every 500 epoch
         if i%500 == 0:
